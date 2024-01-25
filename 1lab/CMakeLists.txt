@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.5)
+project(FirstLab)
+enable_language(CXX)
+add_compile_options(-O3)
+add_library(rectangle rectangle_structure.cpp rectangle_calculation.cpp)
+add_executable(main main.cpp)
+target_link_libraries(main rectangle)
