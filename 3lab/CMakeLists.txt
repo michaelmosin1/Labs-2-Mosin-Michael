@@ -1,0 +1,6 @@
+project(3lab)
+enable_language(CXX)
+add_compile_options(-O3)
+add_executable(main main.cpp)
+add_library(str "string.cpp")
+target_link_libraries(main str)

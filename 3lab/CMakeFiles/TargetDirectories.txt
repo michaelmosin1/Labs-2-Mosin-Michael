@@ -1,0 +1,4 @@
+/home/mikhail/github/3lab/CMakeFiles/main.dir
+/home/mikhail/github/3lab/CMakeFiles/str.dir
+/home/mikhail/github/3lab/CMakeFiles/edit_cache.dir
+/home/mikhail/github/3lab/CMakeFiles/rebuild_cache.dir
