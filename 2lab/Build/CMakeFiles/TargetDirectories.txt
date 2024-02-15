@@ -1,4 +1,0 @@
-/home/mikhail/github/2lab/Build/CMakeFiles/matrix.dir
-/home/mikhail/github/2lab/Build/CMakeFiles/main.dir
-/home/mikhail/github/2lab/Build/CMakeFiles/edit_cache.dir
-/home/mikhail/github/2lab/Build/CMakeFiles/rebuild_cache.dir
