@@ -90,9 +90,17 @@ namespace mm{
         char buffer[100];
         in >> buffer;
         string._length = strlen(buffer);
-        if (string._massive != nullptr) delete[] string._massive;
+        delete[] string._massive;
         string._massive = new char[string._length+1];
         for (int i = 0; i <= string._length; i++) string._massive[i] = buffer[i];
         return in;
+    }
+    void string::pop(size_t index){
+	    if (index = _length) return;
+	    for (size_t i = 0; i < _length; i++){
+	    *this[i] = *this[i+1];
+	    }
+	    _massive = static_cast<char*>(realloc(_massive, _length-1));
+	    _length--;
     }
 }

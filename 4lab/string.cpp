@@ -9,29 +9,34 @@ namespace mm{
     string::string(){
         _massive = nullptr;
         _length = 0;
+        _capacity = 0;
     }
     string::~string(){
         delete[](_massive);
     }
     string::string(const string& other){
 	    _length = other._length;
+        _capacity = other._capacity;
 	    _massive = new char[_length+1];
 	    strcpy(_massive, other._massive);
     }
     string::string(char* c_string){
         _length = strlen(c_string);
-        _massive = new char[_length+1];
+        _capacity = _length + 1;
+        _massive = new char[_capacity];
         strcpy(_massive, c_string);
     }
     string& string::operator=(const string& other){
         _length = strlen(other._massive);
-        _massive = new char[_length+1];
+        _capacity = _length + 1;
+        _massive = new char[_capacity];
         strcpy(_massive, other._massive);
         return(*this);
     }
     string& string::operator=(const char* other){
         _length = strlen(other);
-        _massive = new char[_length+1];
+        _capacity = _length + 1;
+        _massive = new char[_capacity];
         strcpy(_massive, other);
         return(*this);
     }
@@ -40,7 +45,8 @@ namespace mm{
     }
     string& string::operator+=(const string& other){
         _length += other._length;
-        _massive = static_cast<char*>(realloc(_massive, _length+1));
+        _capacity = _length + 1;
+        _massive = static_cast<char*>(realloc(_massive, _capacity));
         strcat(_massive, other._massive);
         return *this;
     }
@@ -90,9 +96,35 @@ namespace mm{
         char buffer[100];
         in >> buffer;
         string._length = strlen(buffer);
-        if (string._massive != nullptr) delete[] string._massive;
+        delete[] string._massive;
         string._massive = new char[string._length+1];
         for (int i = 0; i <= string._length; i++) string._massive[i] = buffer[i];
         return in;
+    }
+    void string::remove(size_t index){
+	    if (index ==_length) return;
+	    for (size_t i = 0; i < _length; i++){
+	    this[i] = this[i+1];
+	    }
+	    _massive = static_cast<char*>(realloc(_massive, _length));
+	    _length--;
+    }
+    void string::reverse(){
+        for (size_t i = 0; i < _length/2; i++)
+            std::swap(_massive[i], _massive[_length-i-1]);
+    }
+    void string::push_back(const char& symbol){
+        _length++;
+        _massive = static_cast<char*>(realloc(_massive, _length+1));
+        _massive[_length] = symbol;
+        std::swap(_massive[_length], _massive[_length-1]);
+    }
+    void string::resize(size_t size){
+        _massive = static_cast<char*>(realloc(_massive, size));
+        if (_length > size) {
+            _length = size - 1;
+            _massive[_length] = '\0';
+        }
+        _capacity = size;
     }
 }

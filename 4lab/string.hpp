@@ -9,6 +9,7 @@ namespace mm{
         public:
             char* _massive;
             size_t _length;
+            size_t _capacity;
         public:
             string();
             ~string();
@@ -19,6 +20,7 @@ namespace mm{
             string operator+(const string& other);
             string& operator+=(const string& other);
             char& operator[](size_t index);
+            char& operator[](size_t index) const;
             bool operator<(const string& other);
             bool operator>(const string& other);
             bool operator==(const string& other);
@@ -26,6 +28,10 @@ namespace mm{
             size_t find(char symbol);
             size_t length();
             char at(size_t index);
+	        void remove(size_t index);
+            void reverse();
+            void push_back(const char& symbol);
+            void resize(size_t size);
 
             friend std::ostream& operator<<(std::ostream& out, string& string);
             friend std::istream& operator>>(std::istream& in, string& string);

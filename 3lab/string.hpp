@@ -26,6 +26,7 @@ namespace mm{
             size_t find(char symbol);
             size_t length();
             char at(size_t index);
+	    void pop(size_t index);
 
             friend std::ostream& operator<<(std::ostream& out, string& string);
             friend std::istream& operator>>(std::istream& in, string& string);
