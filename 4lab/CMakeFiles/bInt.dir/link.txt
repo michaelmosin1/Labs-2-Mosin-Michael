@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbInt.a CMakeFiles/bInt.dir/bigint.cpp.o
+/usr/bin/ranlib libbInt.a

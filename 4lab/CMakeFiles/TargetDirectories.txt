@@ -1,0 +1,5 @@
+/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles/main.dir
+/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles/str.dir
+/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles/bInt.dir
+/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles/edit_cache.dir
+/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles/rebuild_cache.dir

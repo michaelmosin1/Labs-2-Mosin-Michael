@@ -1,6 +1,5 @@
 #include "string.hpp"
 #include <cstddef>
-#include <cstdint>
 #include <stdexcept>
 #include <string.h>
 
@@ -71,6 +70,9 @@ namespace mm{
         return (strcmp(_massive, other._massive) == 0);
     }
     char& string::operator[](size_t index){
+        return _massive[index];
+    }
+    char& string::operator[](size_t index) const {
         return _massive[index];
     }
     char string::at(size_t index){

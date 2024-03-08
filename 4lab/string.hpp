@@ -1,5 +1,4 @@
-#ifndef stroki
-#define stroki
+#pragma once
 #include <cstddef>
 #include <iostream>
 
@@ -13,31 +12,27 @@ namespace mm{
         public:
             string();
             ~string();
+            string(const string& other);
             string(char* c_string);
-	    string(const string& other);
             string& operator=(const string& other);
             string& operator=(const char* other);
-            string operator+(const string& other);
+            const char* c_str();
             string& operator+=(const string& other);
-            char& operator[](size_t index);
-            char& operator[](size_t index) const;
+            string operator+(const string& other);
             bool operator<(const string& other);
             bool operator>(const string& other);
             bool operator==(const string& other);
-            const char* c_str();
-            size_t find(char symbol);
-            size_t length();
+            char& operator[](size_t index);
+            char& operator[](size_t index) const;
             char at(size_t index);
-	        void remove(size_t index);
+            size_t length();
+            size_t find(char symbol);
+            void remove(size_t index);
             void reverse();
             void push_back(const char& symbol);
             void resize(size_t size);
 
             friend std::ostream& operator<<(std::ostream& out, string& string);
             friend std::istream& operator>>(std::istream& in, string& string);
-    };
-    
-    
+    };   
 }
-
-#endif

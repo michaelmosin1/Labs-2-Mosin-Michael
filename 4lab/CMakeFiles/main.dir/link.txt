@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/string.cpp.o CMakeFiles/main.dir/bigint.cpp.o -o main  libstr.a libbInt.a 
