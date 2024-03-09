@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libstr.a"
+  "libstroki.a"
 )

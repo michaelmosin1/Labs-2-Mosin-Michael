@@ -1,10 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/main.dir/bigint.cpp.o"
-  "CMakeFiles/main.dir/bigint.cpp.o.d"
   "CMakeFiles/main.dir/main.cpp.o"
   "CMakeFiles/main.dir/main.cpp.o.d"
-  "CMakeFiles/main.dir/string.cpp.o"
-  "CMakeFiles/main.dir/string.cpp.o.d"
   "main"
   "main.pdb"
 )

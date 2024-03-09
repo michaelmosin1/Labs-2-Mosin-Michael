@@ -2,9 +2,11 @@
 
 
 int main(){
-    mm::BigInt chislo1 = "12345678";
-    mm::BigInt chislo2 = "12345678";
-    chislo1+=chislo2;
-    std::cout << chislo1 << std::endl;
+    mm::string strochka = "12345678";
+    mm::string strochka2 = "12345555";
+    mm::BigInt chislo1 = strochka;
+    mm::BigInt chislo2 = strochka2;
+    chislo2-=chislo1;
+    std::cout << chislo2 << std::endl;
     return 0;
 }

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mikhail/Labs-2-Mosin-Michael/4lab
+CMAKE_SOURCE_DIR = /home/michael/Labs-2-Mosin-Michael/4lab
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mikhail/Labs-2-Mosin-Michael/4lab
+CMAKE_BINARY_DIR = /home/michael/Labs-2-Mosin-Michael/4lab
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles /home/mikhail/Labs-2-Mosin-Michael/4lab//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles /home/michael/Labs-2-Mosin-Michael/4lab//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,38 +130,37 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named str
+# Target rules for targets named stroki
 
 # Build rule for target.
-str: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 str
-.PHONY : str
+stroki: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stroki
+.PHONY : stroki
 
 # fast build rule for target.
-str/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/str.dir/build.make CMakeFiles/str.dir/build
-.PHONY : str/fast
+stroki/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stroki.dir/build.make CMakeFiles/stroki.dir/build
+.PHONY : stroki/fast
 
 #=============================================================================
-# Target rules for targets named bInt
+# Target rules for targets named bigint
 
 # Build rule for target.
-bInt: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bInt
-.PHONY : bInt
+bigint: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bigint
+.PHONY : bigint
 
 # fast build rule for target.
-bInt/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bInt.dir/build.make CMakeFiles/bInt.dir/build
-.PHONY : bInt/fast
+bigint/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bigint.dir/build.make CMakeFiles/bigint.dir/build
+.PHONY : bigint/fast
 
 bigint.o: bigint.cpp.o
 .PHONY : bigint.o
 
 # target to build an object file
 bigint.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/bigint.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bInt.dir/build.make CMakeFiles/bInt.dir/bigint.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bigint.dir/build.make CMakeFiles/bigint.dir/bigint.cpp.o
 .PHONY : bigint.cpp.o
 
 bigint.i: bigint.cpp.i
@@ -169,8 +168,7 @@ bigint.i: bigint.cpp.i
 
 # target to preprocess a source file
 bigint.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/bigint.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bInt.dir/build.make CMakeFiles/bInt.dir/bigint.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bigint.dir/build.make CMakeFiles/bigint.dir/bigint.cpp.i
 .PHONY : bigint.cpp.i
 
 bigint.s: bigint.cpp.s
@@ -178,8 +176,7 @@ bigint.s: bigint.cpp.s
 
 # target to generate assembly for a file
 bigint.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/bigint.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bInt.dir/build.make CMakeFiles/bInt.dir/bigint.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bigint.dir/build.make CMakeFiles/bigint.dir/bigint.cpp.s
 .PHONY : bigint.cpp.s
 
 main.o: main.cpp.o
@@ -211,8 +208,7 @@ string.o: string.cpp.o
 
 # target to build an object file
 string.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/string.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/str.dir/build.make CMakeFiles/str.dir/string.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stroki.dir/build.make CMakeFiles/stroki.dir/string.cpp.o
 .PHONY : string.cpp.o
 
 string.i: string.cpp.i
@@ -220,8 +216,7 @@ string.i: string.cpp.i
 
 # target to preprocess a source file
 string.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/string.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/str.dir/build.make CMakeFiles/str.dir/string.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stroki.dir/build.make CMakeFiles/stroki.dir/string.cpp.i
 .PHONY : string.cpp.i
 
 string.s: string.cpp.s
@@ -229,8 +224,7 @@ string.s: string.cpp.s
 
 # target to generate assembly for a file
 string.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/string.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/str.dir/build.make CMakeFiles/str.dir/string.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stroki.dir/build.make CMakeFiles/stroki.dir/string.cpp.s
 .PHONY : string.cpp.s
 
 # Help Target
@@ -241,9 +235,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... bInt"
+	@echo "... bigint"
 	@echo "... main"
-	@echo "... str"
+	@echo "... stroki"
 	@echo "... bigint.o"
 	@echo "... bigint.i"
 	@echo "... bigint.s"

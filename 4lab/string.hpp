@@ -13,7 +13,7 @@ namespace mm{
             string();
             ~string();
             string(const string& other);
-            string(char* c_string);
+            string(const char* c_string);
             string& operator=(const string& other);
             string& operator=(const char* other);
             const char* c_str();
@@ -34,5 +34,7 @@ namespace mm{
 
             friend std::ostream& operator<<(std::ostream& out, string& string);
             friend std::istream& operator>>(std::istream& in, string& string);
-    };   
+    };
+    int to_int(char symbol);
+	char to_char(int digit);
 }

@@ -19,7 +19,7 @@ namespace mm{
 	    _massive = new char[_length+1];
 	    strcpy(_massive, other._massive);
     }
-    string::string(char* c_string){
+    string::string(const char* c_string){
         _length = strlen(c_string);
         _capacity = _length + 1;
         _massive = new char[_capacity];
@@ -123,10 +123,16 @@ namespace mm{
     }
     void string::resize(size_t size){
         _massive = static_cast<char*>(realloc(_massive, size));
-        if (_length > size) {
+        if (_length >= size) {
             _length = size - 1;
             _massive[_length] = '\0';
         }
         _capacity = size;
     }
+    char to_char(int digit){
+		return char(digit+'0');
+	}
+	int to_int(char symbol){
+		return int(symbol-'0');
+	}
 }

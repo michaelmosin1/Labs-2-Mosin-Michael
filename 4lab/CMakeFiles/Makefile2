@@ -54,18 +54,18 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mikhail/Labs-2-Mosin-Michael/4lab
+CMAKE_SOURCE_DIR = /home/michael/Labs-2-Mosin-Michael/4lab
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mikhail/Labs-2-Mosin-Michael/4lab
+CMAKE_BINARY_DIR = /home/michael/Labs-2-Mosin-Michael/4lab
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
 all: CMakeFiles/main.dir/all
-all: CMakeFiles/str.dir/all
-all: CMakeFiles/bInt.dir/all
+all: CMakeFiles/stroki.dir/all
+all: CMakeFiles/bigint.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,26 +74,26 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/main.dir/clean
-clean: CMakeFiles/str.dir/clean
-clean: CMakeFiles/bInt.dir/clean
+clean: CMakeFiles/stroki.dir/clean
+clean: CMakeFiles/bigint.dir/clean
 .PHONY : clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all: CMakeFiles/str.dir/all
-CMakeFiles/main.dir/all: CMakeFiles/bInt.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/bigint.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/stroki.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles --progress-num=3,4,5,6 "Built target main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles --progress-num=3,4 "Built target main"
 .PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
 .PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.
@@ -106,56 +106,56 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/str.dir
+# Target rules for target CMakeFiles/stroki.dir
 
 # All Build rule for target.
-CMakeFiles/str.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/str.dir/build.make CMakeFiles/str.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/str.dir/build.make CMakeFiles/str.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles --progress-num=7,8 "Built target str"
-.PHONY : CMakeFiles/str.dir/all
+CMakeFiles/stroki.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stroki.dir/build.make CMakeFiles/stroki.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stroki.dir/build.make CMakeFiles/stroki.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles --progress-num=5,6 "Built target stroki"
+.PHONY : CMakeFiles/stroki.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/str.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/str.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
-.PHONY : CMakeFiles/str.dir/rule
+CMakeFiles/stroki.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/stroki.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
+.PHONY : CMakeFiles/stroki.dir/rule
 
 # Convenience name for target.
-str: CMakeFiles/str.dir/rule
-.PHONY : str
+stroki: CMakeFiles/stroki.dir/rule
+.PHONY : stroki
 
 # clean rule for target.
-CMakeFiles/str.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/str.dir/build.make CMakeFiles/str.dir/clean
-.PHONY : CMakeFiles/str.dir/clean
+CMakeFiles/stroki.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stroki.dir/build.make CMakeFiles/stroki.dir/clean
+.PHONY : CMakeFiles/stroki.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/bInt.dir
+# Target rules for target CMakeFiles/bigint.dir
 
 # All Build rule for target.
-CMakeFiles/bInt.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bInt.dir/build.make CMakeFiles/bInt.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bInt.dir/build.make CMakeFiles/bInt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles --progress-num=1,2 "Built target bInt"
-.PHONY : CMakeFiles/bInt.dir/all
+CMakeFiles/bigint.dir/all: CMakeFiles/stroki.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bigint.dir/build.make CMakeFiles/bigint.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bigint.dir/build.make CMakeFiles/bigint.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles --progress-num=1,2 "Built target bigint"
+.PHONY : CMakeFiles/bigint.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/bInt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bInt.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mikhail/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
-.PHONY : CMakeFiles/bInt.dir/rule
+CMakeFiles/bigint.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bigint.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles 0
+.PHONY : CMakeFiles/bigint.dir/rule
 
 # Convenience name for target.
-bInt: CMakeFiles/bInt.dir/rule
-.PHONY : bInt
+bigint: CMakeFiles/bigint.dir/rule
+.PHONY : bigint
 
 # clean rule for target.
-CMakeFiles/bInt.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bInt.dir/build.make CMakeFiles/bInt.dir/clean
-.PHONY : CMakeFiles/bInt.dir/clean
+CMakeFiles/bigint.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bigint.dir/build.make CMakeFiles/bigint.dir/clean
+.PHONY : CMakeFiles/bigint.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
