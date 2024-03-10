@@ -5,6 +5,9 @@
 
 namespace mm
 {
+
+	//constructors and destructor
+
 	BigInt::BigInt(){
 	_number_of_digits = 0;
 	_is_negative = false;
@@ -26,32 +29,67 @@ namespace mm
 		_number_of_digits = _digits.length();
 	}
 	BigInt::~BigInt() = default;
+
+	//logical operations
+
 	bool BigInt::operator<(const BigInt& other){
-		if (_number_of_digits != other._number_of_digits){
-			return (_number_of_digits < other._number_of_digits);
+		if (_is_negative && !other._is_negative) return true;
+		else if (!_is_negative && other._is_negative) return false;
+		else if (!_is_negative && !other._is_negative){
+			if (_number_of_digits != other._number_of_digits){
+				return (_number_of_digits < other._number_of_digits);
+			}
+			else{
+				size_t i = _number_of_digits;
+				while ((_digits[i] == other._digits[i]) && (i > 0)){
+					i--;
+				}
+				return (_digits[i] < other._digits[i]);
+			}
 		}
 		else{
-			size_t i = _number_of_digits;
-			while ((_digits[i] == other._digits[i]) && (i > 0)){
-				i--;
+			if (_number_of_digits != other._number_of_digits){
+				return (_number_of_digits > other._number_of_digits);
 			}
-			return (_digits[i] < other._digits[i]);
+			else{
+				size_t i = _number_of_digits;
+				while ((_digits[i] == other._digits[i]) && (i > 0)){
+					i--;
+				}
+				return (_digits[i] > other._digits[i]);
+			}
 		}
 	}
 	bool BigInt::operator>(const BigInt& other){
-		if (_number_of_digits != other._number_of_digits){
-			return (_number_of_digits > other._number_of_digits);
+		if (_is_negative && !other._is_negative) return false;
+		else if (!_is_negative && other._is_negative) return true;
+		else if (!_is_negative && !other._is_negative){
+			if (_number_of_digits != other._number_of_digits){
+				return (_number_of_digits > other._number_of_digits);
+			}
+			else{
+				size_t i = _number_of_digits;
+				while ((_digits[i] == other._digits[i]) && (i > 0)){
+					i--;
+				}
+				return (_digits[i] > other._digits[i]);
+			}
 		}
 		else{
-			size_t i = _number_of_digits;
-			while ((_digits[i] == other._digits[i]) && (i > 0)){
-				i--;
+			if (_number_of_digits != other._number_of_digits){
+				return (_number_of_digits < other._number_of_digits);
 			}
-			return (_digits[i] > other._digits[i]);
+			else{
+				size_t i = _number_of_digits;
+				while ((_digits[i] == other._digits[i]) && (i > 0)){
+					i--;
+				}
+				return (_digits[i] < other._digits[i]);
+			}
 		}
 	}
 	bool BigInt::operator==(const BigInt& other){
-		if (_number_of_digits != other._number_of_digits){
+		if ((_number_of_digits != other._number_of_digits) || (_is_negative != other._is_negative)){
 			return false;
 		}
 		else{
@@ -63,7 +101,7 @@ namespace mm
 		}
 	}
 	bool BigInt::operator!=(const BigInt& other){
-		if (_number_of_digits != other._number_of_digits){
+		if ((_number_of_digits != other._number_of_digits) || (_is_negative != other._is_negative)){
 			return true;
 		}
 		else{
@@ -86,6 +124,9 @@ namespace mm
 		_digits = other._digits;
 		return *this;
 	}
+
+	//arithmetic operations
+
 	BigInt BigInt::operator+(const BigInt& other){
 		BigInt result;
 		result+=other;
@@ -151,6 +192,15 @@ namespace mm
 		}
 		*this = bigger;
 		return *this;
+	}
+
+	// input-output operations
+
+	std::istream& operator>>(std::istream& in, BigInt& number){
+		mm::string buffer;
+		in >> buffer;
+		number = buffer;
+		return in;
 	}
 	std::ostream& operator<<(std::ostream& out, BigInt& number){
 		mm::string digits = number._digits;
