@@ -48,7 +48,7 @@ namespace mm{
 
     // getter
 
-    const char* string::c_str(){
+    char* string::c_str(){
         return this->_massive;
     }
     size_t string::length(){
@@ -107,7 +107,7 @@ namespace mm{
     void string::push_back(const char& symbol){
         _length++;
         _capacity++;
-        _massive = static_cast<char*>(realloc(_massive, _capacity+1));
+        _massive = static_cast<char*>(realloc(_massive, _capacity));
         _massive[_length-1] = symbol;
         _massive[_length] = '\0';
     }
@@ -135,7 +135,7 @@ namespace mm{
         return out << string.c_str();
     }
     std::istream& operator>>(std::istream& in, string& string){
-        char buffer[1001];
+        char buffer[10001];
         in >> buffer;
         string._length = strlen(buffer);
         string._capacity = string._length+1;

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libstroki.a CMakeFiles/stroki.dir/string.cpp.o
-/usr/bin/ranlib libstroki.a

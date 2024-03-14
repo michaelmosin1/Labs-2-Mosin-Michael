@@ -2,13 +2,26 @@
 
 
 int main(){
-    mm::string strochka = "-12345678";
-    mm::string strochka2 = "12345555";
-    mm::BigInt chislo1 = strochka;
-    mm::BigInt chislo2 = strochka2;
-    std::cout << chislo1 << std::endl;
-    std::cout << chislo2 << std::endl;
-    chislo1-=chislo2;
+    short choose;
+    mm::BigInt chislo1;
+    mm::BigInt chislo2;
+    std::cout << "Please input two numbers:\n";
+    std::cin >> chislo1 >> chislo2;
+    std::cout << "Please select operation:" << std::endl;
+    std::cout << "1)+\t2)-\t3)*\n";
+    std::cin >> choose;
+    switch (choose){
+        case 1:
+            chislo1+=chislo2;
+            break;
+        case 2:
+            chislo1-=chislo2;
+            break;
+        case 3:
+            chislo1*=chislo2;
+            break;
+        default: return 666;
+    }
     std::cout << chislo1 << std::endl;
     return 0;
 }

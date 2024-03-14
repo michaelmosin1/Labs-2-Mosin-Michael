@@ -16,7 +16,7 @@ namespace mm{
             string(const char* c_string);
             string& operator=(const string& other);
             string& operator=(const char* other);
-            const char* c_str();
+            char* c_str();
             string& operator+=(const string& other);
             string operator+(const string& other);
             bool operator<(const string& other);
