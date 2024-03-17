@@ -39,25 +39,25 @@ namespace mm
 		_digits.reverse();
 		_number_of_digits = _digits.length();
 	}
-	// BigInt::BigInt(const int& number){
-	// 	int num = number;
-	// 	_digits = "\0";
-	// 	_is_negative = false;
-	// 	_number_of_digits = 0;
-	// 	if (num < 0){
-	// 		num = -(num);
-	// 		_is_negative = true;
-	// 	}
-	// 	if (num == 0){
-	// 		_digits = "0";
-	// 		_number_of_digits = 1;
-	// 	}
-	// 	while (num > 0){
-	// 		_digits.push_back(to_char(num % 10));
-	// 		_number_of_digits++;
-	// 		num/=10;
-	// 	}		
-	// }
+	BigInt::BigInt(const int& number){
+		int num = number;
+		_digits = "\0";
+		_is_negative = false;
+		_number_of_digits = 0;
+		if (num < 0){
+			num = -(num);
+			_is_negative = true;
+		}
+		if (num == 0){
+			_digits = "0";
+			_number_of_digits = 1;
+		}
+		while (num > 0){
+			_digits.push_back(to_char(num % 10));
+			_number_of_digits++;
+			num/=10;
+		}		
+	}
 	BigInt::BigInt(const size_t& number){
 		size_t num = number;
 		_digits = "\0";

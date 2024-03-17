@@ -20,7 +20,10 @@ int main(){
         case 3:
             chislo1*=chislo2;
             break;
-        default: return 666;
+        default:
+            std::cout << "Error! Wrong operation number." << std::endl;
+            return -14;
+
     }
     std::cout << chislo1 << std::endl;
     return 0;

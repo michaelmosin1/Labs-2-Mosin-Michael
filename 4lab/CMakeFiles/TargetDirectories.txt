@@ -1,0 +1,5 @@
+/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles/main.dir
+/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles/stroki.dir
+/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles/bigint.dir
+/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles/edit_cache.dir
+/home/michael/Labs-2-Mosin-Michael/4lab/CMakeFiles/rebuild_cache.dir

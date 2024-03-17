@@ -15,7 +15,7 @@ namespace mm{
 			BigInt(const mm::string& stroka);
 			BigInt(const char* c_string);
 			BigInt(const size_t& number);
-			//BigInt(const int& number);
+			BigInt(const int& number);
 			~BigInt();
 			BigInt& operator=(const BigInt& other);
 			BigInt& operator+=(const BigInt& other);
