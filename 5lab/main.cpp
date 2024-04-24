@@ -12,7 +12,6 @@ int main(){
     mm::Matrix<int> mat2(n, m);
     std::cout << "Please, input elements of your matrix: " << std::endl;
     std::cin >> mat1;
-    return 0;
     std::cout << "Please, choose your operation:\n1)+\t3)++\t5)A*B\t7)det(A)\n2)-\t4)--\t6)A*x" << std::endl;
     std::cin >> choose;
     switch (choose) {

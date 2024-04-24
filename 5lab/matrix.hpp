@@ -1,4 +1,5 @@
 #pragma once
+#include <cstddef>
 #include <iostream>
 
 namespace mm {
@@ -35,7 +36,7 @@ public:
         }
         for (size_t i = 0; i < size_m; i++) {
             for (size_t j = 0; j < size_n; j++) {
-                this->massive[i][j] = other.massive[i][j];
+                this->massive[i][j] = T(other.massive[i][j]);
             }
         }
     };
@@ -164,23 +165,28 @@ public:
     {
         return this->massive[index];
     };
-    T det()
+    double det()
     {
         if (size_m != size_n) {
             throw std::logic_error("Only square matrixes have determinant!\n");
         }
-        mm::Matrix copy = *this;
+        mm::Matrix additional = *this;
+        mm::Matrix<double> copy(this->size_m, this->size_n);
+        for (size_t i = 0; i < size_m; i++){
+            for (size_t j = 0; j < size_m; j++){
+                copy[i][j] = additional[i][j];
+            }
+        }
         double determinant = 1.0;
         for (size_t i = 0; i < size_n - 1; i++) {
-            for (size_t j = 0; j < size_n; j++) {
-                double coefficient = (copy[i + 1][0] * 1.0) / copy[i][0];
-                for (size_t k = 0; k < size_n; k++) {
-                    copy[i + 1][j] -= (copy[i][j] * coefficient);
+            for (size_t j = i + 1; j < size_n; j++) {
+                double coefficient = double(copy[j][i] * 1.0) / copy[i][i];
+                for (size_t k = i; k < size_n; k++) {
+                    copy[j][k] -= copy[i][k] * coefficient;
                 }
             }
             determinant *= copy[i][i];
         }
-        std::cout << copy << std::endl;
         determinant *= copy[size_n - 1][size_n - 1];
         return determinant;
     };
@@ -193,7 +199,7 @@ public:
             out << std::endl;
         }
         return out;
-    };
+    }
     friend std::istream& operator>>(std::istream& in, Matrix& A)
     {
         for (size_t i = 0; i < A.size_m; i++) {
@@ -202,6 +208,6 @@ public:
             }
         }
         return in;
-    };
+    }
 };
 }
