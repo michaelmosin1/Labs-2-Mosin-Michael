@@ -1,3 +1,0 @@
-/home/Michael/Labs-2-Mosin-Michael/5lab/CMakeFiles/main.dir
-/home/Michael/Labs-2-Mosin-Michael/5lab/CMakeFiles/edit_cache.dir
-/home/Michael/Labs-2-Mosin-Michael/5lab/CMakeFiles/rebuild_cache.dir

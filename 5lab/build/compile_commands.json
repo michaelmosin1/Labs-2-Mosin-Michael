@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/Michael/Labs-2-Mosin-Michael/5lab/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/main.dir/main.cpp.o -c /home/Michael/Labs-2-Mosin-Michael/5lab/main.cpp",
-  "file": "/home/Michael/Labs-2-Mosin-Michael/5lab/main.cpp",
-  "output": "CMakeFiles/main.dir/main.cpp.o"
-}
-]
