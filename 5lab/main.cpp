@@ -1,7 +1,7 @@
 #include "matrix.hpp"
 
-
-int main(){
+int main()
+{
     size_t n = 0;
     size_t m = 0;
     double x = 0;
@@ -33,11 +33,17 @@ int main(){
         mat1--;
         std::cout << mat1 << std::endl;
         break;
-    case 5:
-        std::cout << "Please, input second matrix with same sizes as the first one" << std::endl;
-        std::cin >> mat2;
-        std::cout << mat1 - mat2 << std::endl;
+    case 5: {
+        std::cout << "Please, input sizes of the second matrix" << std::endl;
+        size_t matr2_m = 0;
+        size_t matr2_n = 0;
+        std::cin >> matr2_m >> matr2_n;
+        mm::Matrix<int> matr2(matr2_m, matr2_n);
+        std::cin >> matr2;
+        mat1 *= matr2;
+        std::cout << mat1 << std::endl;
         break;
+    }
     case 6:
         std::cout << "Please, input x-multiplier" << std::endl;
         std::cin >> x;

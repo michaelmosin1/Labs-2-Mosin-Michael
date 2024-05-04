@@ -70,7 +70,7 @@ public:
     };
     Matrix& operator+=(const Matrix& other)
     {
-        if ((this->size_m == other.size_m) && (this->size_m == other.size_n)) {
+        if ((this->size_m == other.size_m) && (this->size_n == other.size_n)) {
             for (size_t i = 0; i < this->size_m; i++) {
                 for (size_t j = 0; j < this->size_n; j++) {
                     this->massive[i][j] += other.massive[i][j];
@@ -87,7 +87,7 @@ public:
     };
     Matrix& operator-=(const Matrix& other)
     {
-        if ((this->size_m == other.size_m) && (this->size_m == other.size_n)) {
+        if ((this->size_m == other.size_m) && (this->size_n == other.size_n)) {
             for (size_t i = 0; i < size_m; i++) {
                 for (size_t j = 0; j < size_n; j++) {
                     this->massive[i][j] -= other.massive[i][j];
@@ -105,7 +105,7 @@ public:
     Matrix& operator*=(const Matrix& other)
     {
         if (this->size_n != other.size_m) {
-            std::cout << "Error! Can only multiply matrixes when number of first`s strings is equal to number of other`c columns" << std::endl;
+            std::cout << "Error! Can only multiply matrixes when number of first`s columns is equal to number of other`c rows" << std::endl;
             return *this;
         }
         Matrix result(this->size_m, other.size_n);
@@ -172,8 +172,8 @@ public:
         }
         mm::Matrix additional = *this;
         mm::Matrix<double> copy(this->size_m, this->size_n);
-        for (size_t i = 0; i < size_m; i++){
-            for (size_t j = 0; j < size_m; j++){
+        for (size_t i = 0; i < size_m; i++) {
+            for (size_t j = 0; j < size_m; j++) {
                 copy[i][j] = additional[i][j];
             }
         }
@@ -185,6 +185,8 @@ public:
                     copy[j][k] -= copy[i][k] * coefficient;
                 }
             }
+            if (copy[i][i] <= 0.00000001) // cause using "==" with double is wrong
+                return 0;
             determinant *= copy[i][i];
         }
         determinant *= copy[size_n - 1][size_n - 1];
@@ -192,6 +194,7 @@ public:
     };
     friend std::ostream& operator<<(std::ostream& out, const Matrix& A)
     {
+        out << std::endl;
         for (size_t i = 0; i < A.size_m; i++) {
             for (size_t j = 0; j < A.size_n; j++) {
                 out << A.massive[i][j] << ' ';
