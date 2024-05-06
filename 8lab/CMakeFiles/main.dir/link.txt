@@ -1,1 +1,0 @@
-/usr/bin/c++ -Llib CMakeFiles/main.dir/main.cpp.o -o main  -lsfml-audio-s -lsfml-graphics-s -lsfml-network-s -lsfml-system-s -lsfml-window-s -lFLAC -lfreetype -logg -lopenal32 -lvorbis -lvorbisenc -lvorbisfile

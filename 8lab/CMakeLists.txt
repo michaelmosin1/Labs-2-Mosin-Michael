@@ -4,22 +4,26 @@ enable_language(CXX)
 
 
 add_executable(main main.cpp)
-add_definitions(-DSFML_STATIC)
 target_link_options(main PUBLIC -Llib)
 include_directories("include/")
 link_directories("lib/")
 target_link_libraries(main
-sfml-audio-s
-sfml-graphics-s
-sfml-network-s
-sfml-system-s
-sfml-window-s
-FLAC
+sfml-audio
+sfml-graphics
+sfml-window
+sfml-system
+sfml-network
 freetype
 ogg
-openal32
+openal
 vorbis
 vorbisenc
 vorbisfile
+udev
+X11
+Xrandr
+OpenGL
+pthread
+Xcursor
 )
 
