@@ -1,8 +1,0 @@
-cmake_minimum_required(VERSION 3.5)
-project(4laba)
-enable_language(CXX)
-add_executable(main "main.cpp")
-add_library(stroki "string.cpp")
-add_library(bigint "bigint.cpp")
-target_link_libraries(bigint stroki)
-target_link_libraries(main bigint)
