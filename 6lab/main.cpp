@@ -2,13 +2,20 @@
 
 
 int main(){
-    mm::Vector<int> vector(5);
-    for (size_t i = 0; i < 5; i++){
-        std::cin >> vector[i];
+    size_t length = 0;
+    std::cout << "Please input length of the vector" << std::endl;
+    std::cin >> length;
+    std::cout << "Please input number of elements" << std::endl;
+    mm::Vector<bool> vector(20);
+    for (size_t i = 0; i < 20; i++){
+        bool elem;
+        std::cin >> elem;
+        vector.set_value(i, elem);
     }
-    vector.erase(2);
-    vector.push_back(1337);
-    vector.insert(228, 3);
+    vector.insert(1, 8);
+    vector.push_back(1);
+    vector.erase(8);
+    std::cout << vector[10] << std::endl;
     std::cout << vector << std::endl;
     return 0;
 }
