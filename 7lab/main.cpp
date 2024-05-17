@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <fstream>
+#include <stdio.h>
 
 // N < 256 и a_i < 256, для всех i=1..N
 // .txt - массив данных в формате N и a_i, где i=1..N (ASCII)
@@ -34,6 +35,13 @@ public:
 	virtual void Write(std::string filename) = 0;
 
 	void GetData(uint8_t* buf, uint8_t& n)
+	{
+		n = m_n;
+		for (int i = 0; i < m_n; i++)
+			buf[i] = m_data[i];
+	}
+
+	void GetData(float* buf, unsigned int& n)
 	{
 		n = m_n;
 		for (int i = 0; i < m_n; i++)
@@ -118,6 +126,45 @@ public:
 	}
 };
 
+class BinfReader : public DataReader
+{
+private:
+	float* m_data;
+	unsigned int m_n;
+public:
+	BinfReader(const std::string& filename) : DataReader(filename) {}
+	virtual ~BinfReader()
+	{
+		delete[] m_data;
+	}
+
+	bool Open() override
+	{
+		m_in.open(m_filename, std::ios::binary);
+		if (!m_in.is_open())
+			return false;
+		return true;
+	}
+
+	void Read() override
+	{
+		m_in.read((char*)&m_n, sizeof(float));
+		std::cout << m_n << std::endl;
+		m_data = new float[m_n];
+		m_in.read((char*)m_data, m_n*sizeof(float));
+	}
+
+	void Write(std::string filename) override
+	{
+		FILE *f = fopen(filename.c_str(), "w");
+		fwrite((void*)&m_n, sizeof(int), 1, f);
+		for (unsigned int i = 0; i < m_n; i++){
+			fwrite((void*)&m_data[i], sizeof(float), 1, f);
+		}
+		fclose(f);
+	}
+};
+
 DataReader* Factory(const std::string& filename)
 {
 	std::string extension = filename.substr(filename.find_last_of('.') + 1);
@@ -126,23 +173,24 @@ DataReader* Factory(const std::string& filename)
 		return new TxtReader(filename);
 	else if (extension == "bin")
 		return new BinReader(filename);
+	else if (extension == "binf")
+		return new BinfReader(filename);
 	return nullptr;
 }
 
 int main()
 {
-	uint8_t n;
-	uint8_t buf[100];
+	unsigned int n;
+	float buf[100];
 
-	DataReader* Reader = Factory("output.bin");
+	DataReader* Reader = Factory("file.binf");
 	if (Reader == nullptr)
 		return -1;
 	Reader->Open();
 	Reader->Read();
 	Reader->GetData(buf, n);
-	//Reader->Write("output.bin");
+	Reader->Write("output.binf");
 
-	std::cout << (int)n << std::endl;
 	for (int i = 0; i < n; i++)
 		std::cout << (int)buf[i] << std::endl;
 	delete Reader;
