@@ -1,12 +1,11 @@
-﻿#include <iostream>
+﻿#include <cstdint>
+#include <iostream>
 #include <fstream>
-#include <stdio.h>
 
 // N < 256 и a_i < 256, для всех i=1..N
 // .txt - массив данных в формате N и a_i, где i=1..N (ASCII)
 // .bin - массив данных в формате N и a_i, где i=1..N (bin)
 
-typedef unsigned char uint8_t;
 class DataReader
 {
 protected:
@@ -15,10 +14,12 @@ protected:
 	std::string m_filename;
 	uint8_t* m_data;
 	uint8_t m_n;
+	float* m_dataf;
+	uint32_t m_nf;
 
 public:
 	DataReader(const std::string& filename) : 
-		m_filename(filename), m_n(0), m_data(nullptr)
+		m_filename(filename), m_n(0), m_data(nullptr), m_nf(0), m_dataf(nullptr)
 	{
 
 	}
@@ -32,21 +33,21 @@ public:
 	}
 
 	virtual void Read() = 0;
-	virtual void Write(std::string filename) = 0;
 
 	void GetData(uint8_t* buf, uint8_t& n)
 	{
 		n = m_n;
-		for (int i = 0; i < m_n; i++)
+		for (uint8_t i = 0; i < m_n; i++)
 			buf[i] = m_data[i];
 	}
 
-	void GetData(float* buf, unsigned int& n)
+	void GetData(float* buf, uint32_t& n)
 	{
-		n = m_n;
-		for (int i = 0; i < m_n; i++)
-			buf[i] = m_data[i];
+		n = m_nf;
+		for (uint32_t i = 0; i < m_nf; i++)
+			buf[i] = m_dataf[i];
 	}
+	virtual void Write(std::string filename) = 0;
 };
 
 class TxtReader : public DataReader
@@ -128,14 +129,11 @@ public:
 
 class BinfReader : public DataReader
 {
-private:
-	float* m_data;
-	unsigned int m_n;
 public:
-	BinfReader(const std::string& filename) : DataReader(filename) {}
+	BinfReader(const std::string& filename) : DataReader(filename) {};
 	virtual ~BinfReader()
 	{
-		delete[] m_data;
+		delete[] m_dataf;
 	}
 
 	bool Open() override
@@ -148,20 +146,21 @@ public:
 
 	void Read() override
 	{
-		m_in.read((char*)&m_n, sizeof(float));
-		std::cout << m_n << std::endl;
-		m_data = new float[m_n];
-		m_in.read((char*)m_data, m_n*sizeof(float));
+		m_in.read((char*)&m_nf, sizeof(uint32_t));
+		m_dataf = new float[m_nf];
+		m_in.read((char*)m_dataf, m_nf*sizeof(float));
 	}
+
+	
 
 	void Write(std::string filename) override
 	{
-		FILE *f = fopen(filename.c_str(), "w");
-		fwrite((void*)&m_n, sizeof(int), 1, f);
-		for (unsigned int i = 0; i < m_n; i++){
-			fwrite((void*)&m_data[i], sizeof(float), 1, f);
+		m_out.open(filename, std::ios::binary);
+		m_out.write((char*)&m_nf, sizeof(uint32_t));
+		for (uint32_t i = 0; i < m_nf; i++) {
+			m_out.write((char*)&m_dataf[i], sizeof(float));
 		}
-		fclose(f);
+		m_out.close();
 	}
 };
 
@@ -180,20 +179,23 @@ DataReader* Factory(const std::string& filename)
 
 int main()
 {
-	unsigned int n;
+	uint32_t n;
 	float buf[100];
-
+	std::cout << sizeof(uint8_t) << ' ' << sizeof(uint32_t) << std::endl;
 	DataReader* Reader = Factory("file.binf");
 	if (Reader == nullptr)
 		return -1;
 	Reader->Open();
 	Reader->Read();
 	Reader->GetData(buf, n);
+	std::cout << n << std::endl;
+	for (int i = 0; i < n; i++)
+		std::cout << (float)buf[i] << ' ';
+	std::cout << std::endl;
 	Reader->Write("output.binf");
 
-	for (int i = 0; i < n; i++)
-		std::cout << (int)buf[i] << std::endl;
 	delete Reader;
+	system("pause");
 	return 0;
 }
 
